@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static org.hamcrest.core.Is.*;
 import static org.junit.Assert.*;
@@ -61,8 +62,10 @@ public class PostsRepositoryTest {
         // then
         Posts posts = postsList.get(0);
         // isAfter는 getCreateDate보다 now보다 뒤의 시간인지 여부를 호출해줌
-        assertTrue(posts.getCreateDate().isAfter(now));
-        assertTrue(posts.getUpdateDate().isAfter(now));
+        assertTrue(posts.getCreatedDate().isAfter(now));
+        assertTrue(posts.getModifiedDate().isAfter(now));
     }
+
+
 
 }
